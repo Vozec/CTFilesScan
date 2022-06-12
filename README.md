@@ -8,8 +8,14 @@ This tools is used to scan automatically ctf files.
 ```bash
 git clone https://github.com/Vozec/CTFilesScan.git
 cd CTFilesScan
+
+Linux:
 chmod +x setup.sh
 ./setup.sh
+
+Windows:
+./setup.ps1
+
 ```
 
 # Commands :
@@ -68,4 +74,4 @@ def scan(config):
 
 All ``configurations`` must to be add in the **modules** directory
 
-All ``setup_NameModule.sh`` must to be placed in **requirements** directory
+All ``setup_NameModule.sh`` must to be placed in **installation** directory
