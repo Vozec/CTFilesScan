@@ -1,4 +1,4 @@
-# Ct-FileScan
+# CTFileScan
 This tools is used to scan automatically ctf files.
 
 ![Alt text](./github/example.png)
