@@ -67,4 +67,5 @@ def scan(config):
 ```
 
 All ``configurations`` must to be add in the **modules** directory
+
 All ``setup_NameModule.sh`` must to be placed in **installation** directory
