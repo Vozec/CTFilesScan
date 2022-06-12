@@ -74,4 +74,4 @@ def scan(config):
 
 All ``configurations`` must to be add in the **modules** directory
 
-All ``setup_NameModule.sh`` must to be placed in **installation** directory
+All ``setup_NameModule.sh / .ps1`` must to be placed in **installation/(linux or windows)** directory
