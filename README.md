@@ -56,7 +56,7 @@ python3 -f example.docm -p admin123 -l "flag{" -o /home/user/
 ```python
 def help():
 	config = {
-		'type':{'document':['.py','.txt']},
+		'type':{'document':['.py','.txt']}, # [] => All extension
 		'linux':True,
 		'windows':True,
 		'name':'example_config'
