@@ -72,6 +72,19 @@ def scan(config):
 	return result
 ```
 
+``config`` is a Dictionary containing : 
+```
+env_dir : Directory Created for the scanned filed
+system_tp : linux/windows
+path : File path
+json : Json response required (optional)
+quiet : Use quiet mode ?  (optional)
+password : Password provided (optional)
+iv : Iv provided (hex) (optional)
+formatflag : Format flag (optional)
+module : Module selected (optional)
+```
+
 All ``configurations`` must to be add in the **modules** directory
 
 All ``setup_NameModule.sh / .ps1`` must to be placed in **installation/(linux or windows)** directory
