@@ -36,7 +36,8 @@ def logger(message,context='',newline=0,tab=0,json=False,time=True):
             final += " | "
         final += (all_context[context] if context in all_context.keys() else '')
         final += '\t'*tab
-        final += ' '
+        if(time and tab == 0):
+            final += ' '
         final += message
         final += bcolors.ENDC
 

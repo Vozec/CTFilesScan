@@ -9,7 +9,6 @@ def do(path, env):
     modules = {}
     for module_name in sorted(get_module_names_in_dir(path)):
         env[module_name] = __import__(module_name)
-
         # Save module | object + config
         modules[module_name]=(env[module_name],__import__(module_name).help())
     return modules

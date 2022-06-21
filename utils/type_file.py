@@ -40,36 +40,20 @@ def Determine_type(ext_word,config):
 				if(filename.endswith(ext) or ext in file_res):
 					if(not config['quiet']):
 						logger("[+] File Type: %s"%_type,'info',0,0)
-					_extension = '.'+filename.split('.')[::-1][0] if '.' in filename else None
+					_extension = '.'+filename.split('.')[::-1][0].lower() if '.' in filename else filename
 					return _type,_extension
 
 	logger("[-] Extension not supported: %s"%filename,'error',1,0,config['json'])
 	exit()
 
-def Filter_modules(modules,config,ext,_type):
-	if(not config['quiet']):
-		logger("[+] Filtering modules for a %s file .."%_type,'info',1,0)
+def Modules_listing(modules):
+	logger('[+] All Modules:','info',1,0,config['json'])
+	logger(f'[*] {"Name" : <17} | {"Linux" : <5} | {"windows" : <5} | {"Extension" : <40}','warning',0,1,config['json'])
+	for mod in modules.items():
+		cfg = mod[1][1]
 
-	filtered = {}
-	for mod in list(modules.items()):
-		try:
-			config_module = mod[1][1]
-
-			if((config_module['linux'] == True and config['system_tp']=="linux" ) or (config_module['windows'] == True and config['system_tp']=="windows")):
-				for _ in config_module['type'].items():
-					if(_type == _[0] ):
-					## If valid extension Or if valid type file + no extension specified
-						if(ext in _[1] or ext==None):
-							filtered[mod[0]]=mod[1]
-							break
-
-		except Exception as ex:
-			logger('Error during checking %s module : %s'%(mod[0],ex),'error',0,0,config['json'])
-			exit()
-
-	if(not config['quiet']):
-		logger('[+] Total Modules Filtered: %s\n'%len(filtered),'info',0,0)
-
-	return filtered
-
-
+		name  	= cfg["name"]
+		linux 	= 'True' if cfg["linux"] else 'False'
+		windows = 'True' if cfg["windows"] else 'False'
+		ext   	= str(list(cfg["type"].items())[0][1])
+		logger(f'[>] {name : <17} | {linux : <5} | {windows : <7} | {ext : <40}','warning',0,1,config['json'])
